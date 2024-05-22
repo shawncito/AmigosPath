@@ -1,12 +1,12 @@
+/* No hay cambios necesarios en el CSS específico para la alerta, ya que se puede ajustar en línea con el estilo */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
   background-color: #E0E0E0;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,8 +17,8 @@
 .caja_1 {
   display: flex;
   margin-top: -1em;
-  margin-left: 2em;
-  margin-right: 2em;
+  margin-left: 7em;
+  margin-right: 7em;
   padding: 2em;
   border-radius: 0.5em;
   background-color: #FFFFFF;
@@ -27,23 +27,19 @@
 
 /* title */
 .title {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: 2.34px;
+  font-weight: 400;
   line-height: 1.2;
   margin-top: 0em;
   margin-bottom: 0.5em;
   font-size: 2em;
+  font-family: Roboto, sans-serif;
 }
 
-
-/* boxes*/
+/* boxes */
 form {
   display: flex;
   flex-direction: row;
-  /*justify-content: space-between;*/
- 
-
-  
 }
 
 .form-label {
@@ -53,7 +49,6 @@ form {
   margin: 2px;
   padding: 10px;
   margin-top: 10px;
-  
 }
 
 .form-input {
@@ -67,14 +62,85 @@ form {
   background-color: #FFFFFF;
 }
 
-
-/*swith*/
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+/* switch */
+.switch_save {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-left: 10px;
 }
+
+.pregunta {
+  font-size: 1.2em;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+
+/* boton GUARDAR */
+.boton {
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 10;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.2em;
+  background-color: #2196F3;
+  color: #FFFFFF;
+  border: 1px solid #2196F3;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background-color: #0D47A1;
+  color: #FFFFFF;
+}
+
+.pregunta {
+  font-size: 16px;
+  margin-top: 7px;
+  margin-left: 10px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+}
+
+/* table */
+.table {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 0.5em;
+  background-color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       
