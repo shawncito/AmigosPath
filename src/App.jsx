@@ -10,6 +10,11 @@ import TextField from '@mui/material/TextField';
 import { TableCell, TableHead, TableRow } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { TableBody, Table } from '@mui/material';
+import Paper from '@mui/material/Paper';
+import { TablePagination} from '@mui/material';
+
+
+
 import './App.css';
 
 
@@ -21,6 +26,9 @@ function App() {
   const [foto, setFoto] = useState('');
   const [esMejorAmigo, setEsMejorAmigo] = useState(false);
   const [alertaVisible, setAlertaVisible] = useState(false);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [showBottom, setShowBottom] = useState(false);
 
   const agregarAmigo = () => {
     if (!nombre || !sobrenombre || !foto) {
@@ -39,6 +47,7 @@ function App() {
     setFoto('');
     setEsMejorAmigo(false);
     setAlertaVisible(false);
+    setShowBottom(true);
     console.log([...amigos, nuevoAmigo]);
   };
 
@@ -46,10 +55,21 @@ function App() {
     setEsMejorAmigo(event.target.checked);
   };
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+ 
+
   return (
     <div>
       {alertaVisible && (
-        <Alert severity="warning" style={{ marginBottom: '10px' }}>
+        <Alert severity="warning" className='warning'>
           Todos los campos son requeridos para guardar un nuevo amigo.
         </Alert>
       )}
@@ -68,7 +88,6 @@ function App() {
                   name="nombre"
                   value={nombre}
                   onChange={(e) => setNombre(e.target.value)}
-                  required
                 />
               </label>
               <label className="form-label">
@@ -79,7 +98,6 @@ function App() {
                   name="sobrenombre"
                   value={sobrenombre}
                   onChange={(e) => setSobrenombre(e.target.value)}
-                  required
                 />
               </label>
               <label className="form-label">
@@ -90,7 +108,6 @@ function App() {
                   name="foto"
                   value={foto}
                   onChange={(e) => setFoto(e.target.value)}
-                  required
                 />
               </label>
             </form>
@@ -117,9 +134,12 @@ function App() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {amigos.map((amigo, index) => (
+                {(rowsPerPage > 0
+                  ? amigos.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  : amigos
+                ).map((amigo, index) => (
                   <TableRow key={index} className="tablerow">
-                    <TableCell className="tablecell"><img src={amigo.foto} alt={`${amigo.nombre}`} style={{ width: '50px', height: '50px' }} /></TableCell>
+                    <TableCell className="tablecell"><img src={amigo.foto} alt={amigo.nombre} style={{ width: '50px', height: '50px' }} /></TableCell>
                     <TableCell className="tablecell">{amigo.nombre}</TableCell>
                     <TableCell className="tablecell">{amigo.sobrenombre}</TableCell>
                     <TableCell className="tablecell">{amigo.esMejorAmigo ? 'Sí' : 'No'}</TableCell>
@@ -127,6 +147,17 @@ function App() {
                 ))}
               </TableBody>
             </Table>
+                {showBottom && (
+                  <TablePagination
+                    rowsPerPageOptions={[5, 10, 25]}
+                    component="div"
+                    count={amigos.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
+                )}
           </div>
         </div>
       </div>
@@ -135,3 +166,4 @@ function App() {
 }
 
 export default App;
+
