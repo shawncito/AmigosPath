@@ -29,6 +29,7 @@ function App() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [showBottom, setShowBottom] = useState(false);
+  const [showMensaje, setShowMensaje] = useState(true);
 
   const agregarAmigo = () => {
     if (!nombre || !sobrenombre || !foto) {
@@ -48,6 +49,7 @@ function App() {
     setEsMejorAmigo(false);
     setAlertaVisible(false);
     setShowBottom(true);
+    setShowMensaje(false);
     console.log([...amigos, nuevoAmigo]);
   };
 
@@ -121,6 +123,7 @@ function App() {
             </div>
             <div className="boton">
               <button className="btn" onClick={agregarAmigo}>GUARDAR</button>
+              
             </div>
           </div>
           <div className="table">
@@ -145,8 +148,16 @@ function App() {
                     <TableCell className="tablecell">{amigo.esMejorAmigo ? 'Sí' : 'No'}</TableCell>
                   </TableRow>
                 ))}
+
+                
               </TableBody>
+              
             </Table>
+            {showMensaje && (
+              <div className='box_text'>
+                <h1 className='mensajito'>No hay amigos :( </h1>
+              </div>
+            )}
                 {showBottom && (
                   <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
@@ -158,6 +169,12 @@ function App() {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                   />
                 )}
+
+                
+
+                
+
+
           </div>
         </div>
       </div>
