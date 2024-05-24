@@ -12,6 +12,12 @@ import Alert from '@mui/material/Alert';
 import { TableBody, Table } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { TablePagination} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/icons-material/Menu';
+import Typography from '@mui/material/Typography';
+
 
 
 
@@ -71,13 +77,27 @@ function App() {
  
 
   return (
-    <div>
+    
+    
+    <div className="Appp">
+      <AppBar position="static" className='appbar'>
+    <Toolbar variant="dense">
+        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+          <Menu />
+        </IconButton>
+        <Typography variant="h6" color="inherit" component="div">
+        CompasApp
+        </Typography>
+    </Toolbar>
+    </AppBar>
+<div>
+
+      <div className="caja_2">
       {alertaVisible && (
         <Alert severity="warning" className='warning'>
           Todos los campos son requeridos para guardar un nuevo amigo.
         </Alert>
       )}
-      <div className="caja_2">
       <div className="caja_1">
         <div className="App">
           <header className="App-header">
@@ -189,6 +209,7 @@ function App() {
 )}   
 </div>
       </div>
+    </div>
     </div>
   );
 }
