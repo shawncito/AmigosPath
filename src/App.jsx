@@ -30,6 +30,7 @@ function App() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [showBottom, setShowBottom] = useState(false);
   const [showMensaje, setShowMensaje] = useState(true);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const agregarAmigo = () => {
     if (!nombre || !sobrenombre || !foto) {
@@ -50,6 +51,7 @@ function App() {
     setAlertaVisible(false);
     setShowBottom(true);
     setShowMensaje(false);
+    setShowSuccess(true);
     console.log([...amigos, nuevoAmigo]);
   };
 
@@ -75,6 +77,7 @@ function App() {
           Todos los campos son requeridos para guardar un nuevo amigo.
         </Alert>
       )}
+      <div className="caja_2">
       <div className="caja_1">
         <div className="App">
           <header className="App-header">
@@ -122,7 +125,7 @@ function App() {
               <h2 className="pregunta">Es mejor amigo</h2>
             </div>
             <div className="boton">
-              <button className="btn" onClick={agregarAmigo}>GUARDAR</button>
+              <button className="btn" onClick={agregarAmigo} >GUARDAR</button>
               
             </div>
           </div>
@@ -177,6 +180,14 @@ function App() {
 
           </div>
         </div>
+      </div >
+      <div className="caja_success">
+      {showSuccess && (
+  <Alert severity="success" className='success' onClose={() => setShowSuccess(false)}>
+    Amigo guardado con éxito!
+  </Alert>
+)}   
+</div>
       </div>
     </div>
   );

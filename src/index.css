@@ -16,6 +16,7 @@
 /*caja_1*/
 .caja_1 {
   display: flex;
+  flex-direction: column;
   margin-top: -1em;
   margin-left: 7em;
   margin-right: 7em;
@@ -24,6 +25,19 @@
   background-color: #FFFFFF;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
   height: 750px;
+  width: 1000px;
+}
+
+.caja_2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width : 110%;
+  
+  border-radius: 0.5em;
+ 
+  
+  
 }
 
 
@@ -163,6 +177,30 @@ form {
   
 }
 
+.success{
+  display: flex;
+  
+  justify-content: right;
+  
+  margin-bottom: 30px;
+  margin-top: 0px;
+  margin-left: 8em;
+  margin-right: 0em;
+
+  width: 20%;
+  
+}
+
+.caja_success
+{
+display: flex;
+justify-content: right;  
+
+margin-top: -20px;
+margin-left: 0px;
+
+}
+
 
 
 
@@ -188,5 +226,3 @@ form {
     
       
       
-      
-           
